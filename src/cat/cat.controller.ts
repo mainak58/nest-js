@@ -9,7 +9,7 @@
 //   }
 // }
 
-import { Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Controller, Get, HttpCode, Param, Post } from '@nestjs/common';
 
 @Controller('cat')
 export class CatController {
@@ -19,8 +19,15 @@ export class CatController {
     return 'This action adds a new cat';
   }
 
-  @Get()
-  findAll(): string {
-    return 'This action returns all cats';
+  // @Get(':id')
+  // findOne (@Param() params: any): string {
+  //   console.log(params.id);
+  // return `This action returns a #${params.id} cat`;
+  // }
+
+  @Get(':id/:type')
+  findOne(@Param('id') id: string, @Param('type') type: string): string {
+    // console.log(first)
+    return `This will return ${id} and type is ${type}`;
   }
 }
