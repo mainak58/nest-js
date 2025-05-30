@@ -12,4 +12,8 @@ export class UserService {
   findAll(): CreateUserDto[] {
     return this.users;
   }
+
+  async findOne(userName: string) {
+    return this.users.find((m) => m.name === userName);
+  }
 }
