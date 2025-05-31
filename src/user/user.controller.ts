@@ -20,4 +20,5 @@ export class UserController {
   findAll(): CreateUserDto[] {
     return this.userService.findAll();
   }
+  
 }
